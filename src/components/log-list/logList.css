@@ -1,0 +1,81 @@
+.main-section {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  background: #222;
+  gap: 1rem;
+}
+
+.filter-item {
+  text-align: left;
+}
+
+.filter-item p {
+  margin: 0;
+}
+
+.error {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  background: #322;
+  gap: 1rem;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.divider {
+  background: #444;
+  height: 2px;
+  width: 95%;
+  margin: 0.5rem auto;
+}
+
+.logs-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.collapse {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  border: 2px solid gray;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  display: inline-grid;
+}
+.loader:before,
+.loader:after {
+  content:"Loading...";
+  grid-area: 1/1;
+  -webkit-mask:linear-gradient(90deg,#000 50%,#0000 0) 0 50%/2ch 100%;
+  animation: l11 1s infinite cubic-bezier(0.5,220,0.5,-220);
+}
+.loader:after {
+  -webkit-mask-position:1ch 50%;
+  --s:-1;
+}
+@keyframes l11 {100%{transform: translateY(calc(var(--s,1)*0.1%));}}
