@@ -24,7 +24,7 @@ function LogFilters({
 
   return (
     <form className="filters" onSubmit={submitSearch}>
-      <div className="filter-item">
+      {/* <div className="filter-item">
         <label>Id Empresa</label>
         <input
           name="idEmpresa"
@@ -32,7 +32,7 @@ function LogFilters({
           value={filters.idEmpresa}
           onChange={handleChange}
         />
-      </div>
+      </div> */}
 
       <div className="filter-item">
         <label>Fecha inicial</label>
@@ -54,7 +54,7 @@ function LogFilters({
         />
       </div>
 
-      <div className="filter-item">
+      {/* <div className="filter-item">
         <label>infraestructura</label>
         <select
           name="infrastructure"
@@ -65,7 +65,7 @@ function LogFilters({
           <option value="FE2">FE2</option>
           <option value="FE3">FE3</option>
         </select>
-      </div>
+      </div> */}
 
       <button type="submit">Search</button>
     </form>

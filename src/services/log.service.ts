@@ -6,8 +6,12 @@ export class LogService {
   public async getLogs(getLogsFilters: GetLogsFilters): Promise<Log[]> {
     console.log(getLogsFilters);
 
+    getLogsFilters.finalDate.setHours(23);
+    const fechaInicio = getLogsFilters.initialDate.toISOString();
+    const fechaFin = getLogsFilters.finalDate.toISOString();
+
     const resp = await fetch(
-      `http://localhost:37527/api/Logs?pageNumber=1&pageSize=5`
+      `http://localhost:37527/api/Logs/byDateRange?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}&pageNumber=1&pageSize=20`
     );
 
     const data = (await resp.json()) as GetLogsResponse;
