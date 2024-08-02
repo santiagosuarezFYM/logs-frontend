@@ -11,7 +11,7 @@ interface Props {
 
 export const LogItem = ({ log, index, collapseCount }: Props) => {
   const [open, setOpen] = useState(false);
-  const fechaRegistro = new Date(log.FechaRegistro);
+  const fechaRegistro = new Date(log.fechaRegistro);
 
   useEffect(() => {
     setOpen(false);
@@ -27,46 +27,46 @@ export const LogItem = ({ log, index, collapseCount }: Props) => {
     >
       <div className="log-item-title" onClick={() => setOpen(!open)}>
         <div>
-          <span className="highlight">{log.IdLog}</span>
-          <span className="highlight">{log.Severidad}</span>
-          <span className="highlight">{log.TipoLog}</span>
+          <span className="highlight">{log.idLog}</span>
+          <span className="highlight">{log.severidad}</span>
+          <span className="highlight">{log.tipoLog}</span>
           <span className="highlight">{fechaRegistro.toUTCString()}</span>
         </div>
-        <p>{log.InfoLog.Log}</p>
+        <p>{log.infoLog.log}</p>
       </div>
 
       {open && (
         <div className="content">
           <div className="content-log">
-            <span>ID: {log.ID}</span>
-            <span>IdLog: {log.IdLog}</span>
-            <span>TipoLog: {log.TipoLog}</span>
-            <span>Severidad: {log.Severidad}</span>
-            <span>Infraestructura: {log.Infraestructura}</span>
+            <span>ID: {log.id}</span>
+            <span>IdLog: {log.idLog}</span>
+            <span>TipoLog: {log.tipoLog}</span>
+            <span>Severidad: {log.severidad}</span>
+            <span>Infraestructura: {log.infraestructura}</span>
             <span>FechaRegistro: {fechaRegistro.toUTCString()}</span>
-            <span>ArchivoOrigen: {log.ArchivoOrigen}</span>
-            <span>MetodoOrigen: {log.MetodoOrigen}</span>
-            <span>LineaOrigen: {log.LineaOrigen}</span>
-            <span>MensajeError: {log.MensajeError}</span>
-            <span>StackTrace: {log.StackTrace}</span>
+            <span>ArchivoOrigen: {log.archivoOrigen}</span>
+            <span>MetodoOrigen: {log.metodoOrigen}</span>
+            <span>LineaOrigen: {log.lineaOrigen}</span>
+            <span>MensajeError: {log.mensajeError}</span>
+            <span>StackTrace: {log.stackTrace}</span>
           </div>
           <div className="content-log">
             <h3>Log info:</h3>
 
             <h4>Empresa Emisora</h4>
             <span>
-              {log.InfoLog.EmpresaEmisora.Id} -{" "}
-              {log.InfoLog.EmpresaEmisora.Nombre}
+              {log.infoLog.empresaEmisora.idE} -{" "}
+              {log.infoLog.empresaEmisora.nombre}
             </span>
 
             <h4>Empresa Receptora</h4>
             <span>
-              {log.InfoLog.EmpresaReceptora.Id} -{" "}
-              {log.InfoLog.EmpresaEmisora.Nombre}
+              {log.infoLog.empresaReceptora.idR} -{" "}
+              {log.infoLog.empresaReceptora.nombre}
             </span>
 
-            <h4>Log - Modulo: {log.InfoLog.Modulo}</h4>
-            <span>{log.InfoLog.Log}</span>
+            <h4>Log - Modulo: {log.infoLog.modulo}</h4>
+            <span>{log.infoLog.log}</span>
           </div>
         </div>
       )}

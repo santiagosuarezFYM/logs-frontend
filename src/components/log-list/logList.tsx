@@ -20,8 +20,7 @@ function LogList() {
   const searchLogs = async (): Promise<void> => {
     try {
       setLoading(true);
-      const list = await logService.getLogs(filters);
-      setLogs(list);
+      setLogs(await logService.getLogs(filters));
     } catch (error) {
       console.log(error);
       setError("Se presento un error al obtener el listado de logs");
@@ -74,7 +73,7 @@ function LogList() {
       <section className="logs-list">
         {!loading && logs.map((log, i) => (
           <LogItem
-            key={log.ID}
+            key={`${log.id}-${i}`}
             log={log}
             index={i}
             collapseCount={collapseCount}
